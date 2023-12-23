@@ -1,0 +1,19 @@
+﻿MVC YAPISI
+
+Proporties Klasörü
+1-) İçerisindeki lounchsettings.json uygulamayı başlatmak için gereken tüm bilgileri içeren bir dosya türüdür. Bu dosya içerisindeki profil dosya içerisindeki çalıştırabileceği profilleri içerir. IIS Express, http ve https gibi bu profillerden uygulamanın IIS express sunucusu ile diğerleri ise kestral server sunucu üzerinden başlatılacağı anlamına gelir.
+
+2-) appsettings.json dosyası ise tüm bağlantı dizelerini, uygulama ile ilgili ayarları barındırır.
+
+3-) .NET core platformunda css, javascript, resimler, simgeler vb static dosyaları sunmak ve depolamak için wwwroot klasörü vardır. Program.cs class'ı içerisinde app.UseStaticFiles() methodu ile bu klasör tanımlanması yapılmıştır.
+
+4-) Dependecies dosyası içerisinde iki  farklı framework mevcuttur.
+Microsoft.NetCore.App => Sistem ile ilgili genel işlemleri kapsayan framework 
+Microsoft.ASPNetCore.App => Web ile ilgili framework
+
+Kestral Server Nedir?
+
+Kestral Asp.Net için platformlar arası bir Web sunucusudur. Asp.Net proje şablonlarında varsayılan olarak bulunur .net core ile birlikte kestral  server dediğimiz bir çok open-source(açık kaynak kodlu yani herkesin geliştirip katkı sağlayabildiği uygulama) programlama dilini desteklediği yazılımsal bir web web arayüzü implemente edilmiştir. Zaten bu sayede farklı ortamlarda web sitemizi yayınlayabiliyoruz. Yani kestral server bir .net uygulamsı Linux, Macos, Windows, Ubuntu vs gibi farklı işletim sistemleri web sunucularında yayınlayabilir. .Net Core öncesinde bir web uygulamsı sadece windows ortamındaki sunucularda çalıştırılabiliyordu. Aynı zamanda kestral server uygulama sayesinde çalışılan bir yazılım katmanıdır. Bunun dışında web sunucumuz ortamlarda yayınlanmak için Apache, Nodejs, IIS gibi web server hizmetlerine hangi birisini veya daha fazlasını uygulama ile uyumlu hale getirmek için yazılmış bir ara katmandır. 
+
+ASP .NET CORE Middleware Nedir? 
+Middleware repuest-response pipeline'ının işlemenizi sağlayan bir çeşit interceptor(methodu çağrımları sırasında araya girerek kesişen bilgilerimizi işlememizi ve yönetmemizi sağlar) görevi gören ara katman elemanıdır. Her bir bileşen istegin işlem hattında sonraki bileşene geçirilip geçirilemeyeceğini secer. Aynı zamanda işlem hattındaki sonraki bileşenden önce ve sonra iş gerçekleştirilebilir. Middleware'ler kullanılarak proje içerisindeki birçok repuest-response işlemlerini düzenleyebiliriz ve birçok check işlemi için middleware kullanabiliriz. Aynı zamanda moduler yapıda geliştir yapmamıza olanak tanıdığı için kod tekrarından , spagetti kod kullanımından kurtarır. Program.cs class'ında oluşturduğumuz middleware'leri aktive ederiz.
